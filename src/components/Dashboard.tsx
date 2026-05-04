@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { 
   CheckCircle2, 
   GraduationCap, 
@@ -24,12 +24,7 @@ import {
   FileText,
   Zap,
   Filter,
-  Tag,
-  Facebook,
-  Twitter,
-  Instagram,
-  Youtube,
-  Linkedin
+  Tag
 } from 'lucide-react';
 import { cn } from '../lib/utils';
 
@@ -593,11 +588,11 @@ export function Dashboard({ isAuthenticated, onLoginClick, rollNo, isDarkMode, o
               <h4 className="font-black text-[#1a365d] dark:text-sky-400 uppercase tracking-widest text-xs">Follow Us</h4>
               <div className="flex gap-4">
                   {[
-                    { icon: Facebook, url: 'https://www.facebook.com/glauniversity/' },
-                    { icon: Twitter, url: 'https://twitter.com/gla_university' },
-                    { icon: Instagram, url: 'https://www.instagram.com/gla_university/' },
-                    { icon: Youtube, url: 'https://www.youtube.com/user/glauniversity' },
-                    { icon: Linkedin, url: 'https://www.linkedin.com/school/gla-university/' }
+                    { icon: ExternalLink, url: 'https://www.facebook.com/glauniversity/', label: 'Facebook' },
+                    { icon: ExternalLink, url: 'https://twitter.com/gla_university', label: 'Twitter' },
+                    { icon: ExternalLink, url: 'https://www.instagram.com/gla_university/', label: 'Instagram' },
+                    { icon: ExternalLink, url: 'https://www.youtube.com/user/glauniversity', label: 'YouTube' },
+                    { icon: ExternalLink, url: 'https://www.linkedin.com/school/gla-university/', label: 'LinkedIn' }
                   ].map((s, i) => (
                       <a 
                         key={i} 

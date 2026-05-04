@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { 
-  Facebook, 
-  Linkedin, 
-  Twitter, 
   RefreshCw, 
   X, 
   ChevronRight,
   GraduationCap,
-  Sparkles
+  Sparkles,
+  MessageSquare,
+  Users
 } from 'lucide-react';
 
 interface LoginProps {
@@ -86,12 +85,12 @@ export function Login({ onLogin, onCancel }: LoginProps) {
             <div className="pt-8">
               <h3 className="text-xs font-bold uppercase tracking-widest opacity-60 mb-4">Login with social media</h3>
               <button className="w-full flex items-center gap-4 bg-indigo-800/40 hover:bg-indigo-800/60 p-3 rounded-lg transition-all border border-white/10 group mb-2">
-                <Facebook size={20} fill="white" />
+                <MessageSquare size={20} fill="white" />
                 <span className="text-sm">Facebook</span>
                 <ChevronRight size={16} className="ml-auto opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
               </button>
               <button className="w-full flex items-center gap-4 bg-orange-600 p-3 rounded-lg hover:bg-orange-700 transition-all border border-white/10 group mb-2">
-                <Linkedin size={20} fill="white" />
+                <Users size={20} fill="white" />
                 <span className="text-sm">LinkedIn</span>
                 <ChevronRight size={16} className="ml-auto opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
               </button>

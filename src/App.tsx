@@ -12,7 +12,7 @@ import {
   Trash2,
   Plus
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { format } from 'date-fns';
 import { cn } from './lib/utils';
 import { getHybridResponse, SourceType } from './services/hybrid';
