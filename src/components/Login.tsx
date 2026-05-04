@@ -27,9 +27,9 @@ export function Login({ onLogin, onCancel }: LoginProps) {
   };
 
   return (
-    <div className="h-screen w-full flex items-center justify-center p-4 relative overflow-hidden bg-slate-900">
+    <div className="h-screen w-full flex items-center justify-center p-4 relative overflow-hidden bg-gradient-to-br from-slate-100 via-slate-200 to-white">
       {/* Abstract Background Animation */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-25">
         <motion.div 
           animate={{ 
             scale: [1, 1.2, 1],
