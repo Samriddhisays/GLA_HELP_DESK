@@ -336,43 +336,7 @@ export async function getHybridResponse(
   history: ChatMessage[], 
   options: GeminiOptions = {}
 ): Promise<BotResponse> {
-  const lowerQuery = query.toLowerCase();
-  
-  // 1. Check Personal Knowledge Base with better matching
-  let bestMatch: KnowledgeItem | null = null;
-  let maxScore = 0;
-
-  for (const item of KNOWLEDGE_BASE) {
-    let score = 0;
-    if (lowerQuery.includes(item.question.toLowerCase())) score += 10;
-    const matchCount = item.keywords.filter(k => lowerQuery.includes(k.toLowerCase())).length;
-    score += matchCount;
-
-    if (score > maxScore) {
-      maxScore = score;
-      bestMatch = item;
-    }
-  }
-  
-  // Threshold for "official" match
-  if (bestMatch && maxScore >= 2) {
-    // Artificial delay to simulate processing
-    await new Promise((resolve, reject) => {
-      const timeout = setTimeout(resolve, 600);
-      options.signal?.addEventListener('abort', () => {
-        clearTimeout(timeout);
-        reject(new DOMException('Aborted', 'AbortError'));
-      });
-    });
-    return {
-      text: bestMatch.answer,
-      source: 'official'
-    };
-  }
-
-  // 2. Fallback to Gemini AI for conversational or complex queries
-  // Note: Gemini SDK doesn't natively support AbortSignal in generateContent easily
-  // We wrap it to respect the signal in the app logic
+  // Directly call the NLP backend for dataset matching
   const aiPromise = getGeminiResponse(query, history, options);
   
   const aiResult = await Promise.race([
